@@ -1,12 +1,5 @@
 <?php
-// =============================================================
-// enrutador del Sistema (TAREA-05 y TAREA-06 / HU-02 / RF-02)
-// Es la "puerta de entrada" única del proyecto (patrón MVC con
-// Front Controller). Calcula el controlador y la acción según la
-// URL: index.php?c=auth&a=login
-// Además: protege TODAS las rutas internas exigiendo sesión
-// activa (criterio 1 de HU-02).
-// =============================================================
+
 
 // Activamos la sesión PHP (necesaria para validar el login).
 session_start();

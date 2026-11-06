@@ -1,9 +1,4 @@
 <?php
-// =============================================================
-// Clase UsuarioModel (TAREA-02 / HU-01 / RF-01)
-// Modelo encargado de TODAS las consultas SQL sobre la tabla
-// 'usuario'. Solo contiene lógica de datos, nunca HTML.
-// =============================================================
 
 require_once __DIR__ . '/../config/Conexion.php';
 
@@ -28,8 +23,10 @@ class UsuarioModel
         $sql = 'SELECT id, nombre, correo, password_hash, rol, estado
                 FROM usuario
                 WHERE correo = :correo
+                //LIMIT 1: En cuanto encuentres el primer resultado que coincida con este correo, detén la búsqueda", ya que el correo es único.
                 LIMIT 1';
 
+                // prepare sirve para evitar la inyection sql y el usuario pueda entrar de forma segura
         $consulta = $this->conexion->prepare($sql);
         $consulta->execute([':correo' => $correo]);
 

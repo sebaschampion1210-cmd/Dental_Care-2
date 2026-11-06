@@ -1,9 +1,5 @@
 <?php
-// =============================================================
-// Vista: login.php (TAREA-04 / HU-01 / RF-01)
-// Formulario de acceso con diseño responsivo en Bootstrap 5,
-// siguiendo la "Pantalla 1" del documento docs/diseno_ui_ux.md.
-// =============================================================
+
 
 // Tomamos el error guardado en la sesión (si existe) y luego lo
 // eliminamos para que la alerta no reaparezca al recargar.

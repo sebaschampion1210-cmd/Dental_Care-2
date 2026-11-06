@@ -1,9 +1,5 @@
 <?php
-// =============================================================
-// Clase PacienteModel (TAREA-08 / HU-03 / RF-03 y RF-04)
-// Modelo encargado de TODAS las consultas SQL sobre la tabla
-// 'paciente'. Solo lógica de datos, nunca pantallas (MVC).
-// =============================================================
+
 
 require_once __DIR__ . '/../config/Conexion.php';
 

@@ -1,9 +1,5 @@
 <?php
-// =============================================================
-// Clase CitaController (TAREA-15 / HU-05 / RF-06 y RF-07)
-// Recibe el formulario de reserva, valida que el horario esté
-// libre (RN-01) y pinta la agenda del día con sus alertas.
-// =============================================================
+
 
 require_once __DIR__ . '/../models/CitaModel.php';
 require_once __DIR__ . '/../models/PacienteModel.php';
@@ -20,7 +16,10 @@ class CitaController
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
+
+        //Para manejar todo lo relacionado con las citas y los cruces de horarios.
         $this->modelo         = new CitaModel();
+        // Para poder traer el listado de pacientes y mostrarlos en los menús desplegables (<select>) del formulario
         $this->pacienteModelo = new PacienteModel();
     }
 

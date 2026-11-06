@@ -113,10 +113,6 @@ class CitaModel
         return $consulta->fetch();
     }
 
-    // Cambia el estado del turno (RF-08 / TASK-17 / RN-03).
-    // Regla RN-03: una cita 'Atendida' o 'Cancelada' queda CERRADA
-    // y ya no se puede modificar. Se bloquea en la misma consulta
-    // con 'estado NOT IN (...)' y también revisando el dato antes.
     public function actualizarEstado($id, $estado)
     {
         // 1. Revisión didáctica: ¿existe la cita y sigue abierta?

@@ -1,10 +1,9 @@
 <?php
-// =============================================================
-// Clase AuthController (TAREA-03 / HU-01 / RF-01)
+
 // Controlador encargado de gestionar el inicio de sesión y el
 // cierre de sesión del personal del consultorio.
-// =============================================================
 
+// ESTA PARTE SIRVE PARA QUE PHP PUEDA BUSCAR LA RUTA EN MODELS MAS RAPIDO Y SIN PERDERSE
 require_once __DIR__ . '/../models/UsuarioModel.php';
 
 class AuthController
@@ -14,14 +13,14 @@ class AuthController
 
     public function __construct()
     {
-        // Activamos la sesión PHP antes de usar $_SESSION.
+        //  SESSION_START Activa el sistema de sesiones de PHP para poder recordar quién inició sesión.
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
         $this->modelo = new UsuarioModel();
     }
 
-    // Muestra la vista del formulario de login (se crea en TASK-04).
+    // Muestra la vista del formulario de login .
     public function mostrarLogin()
     {
         require_once __DIR__ . '/../views/auth/login.php';
@@ -40,13 +39,13 @@ class AuthController
 
         // 3. Validamos: debe existir, estar activo y su contraseña
         // debe coincidir con el hash guardado en la tabla.
-        if ($usuario
-            && $usuario['estado'] === 'activo'
+        if ($usuario && $usuario['estado'] === 'activo'
             && password_verify($clave, $usuario['password_hash'])) {
 
             // 4. Credenciales válidas: guardamos sus datos en la sesión.
             // Primero regeneramos el ID de la sesión por seguridad
             // (evita el ataque llamado "fijación de sesión").
+            // 
             session_regenerate_id(true);
             $_SESSION['usuario_id'] = $usuario['id'];
             $_SESSION['nombre']     = $usuario['nombre'];
